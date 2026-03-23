@@ -483,3 +483,24 @@ footer {
     height: 100%;
     border: 0;
 }
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;   /* IMPORTANT */
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  font-size: 12px;   /* reduce for mobile */
+}
+@media (max-width: 600px) {
+  nav ul li a {
+    font-size: 9px;
+    margin: 0 5px;
+  }
+}
