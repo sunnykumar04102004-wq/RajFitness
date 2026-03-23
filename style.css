@@ -483,24 +483,27 @@ footer {
     height: 100%;
     border: 0;
 }
+nav {
+  overflow-x: auto;   /* allow horizontal scroll */
+}
+
 nav ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* change from center */
   align-items: center;
-  flex-wrap: nowrap;   /* IMPORTANT */
+  gap: 15px;
+  flex-wrap: nowrap;
+  padding: 0 10px;
 }
 
 nav ul li {
   list-style: none;
-  margin: 0 10px;
+  flex-shrink: 0; /* IMPORTANT - prevents breaking */
 }
 
 nav ul li a {
-  font-size: 12px;   /* reduce for mobile */
-}
-@media (max-width: 600px) {
-  nav ul li a {
-    font-size: 9px;
-    margin: 0 5px;
-  }
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  white-space: nowrap; /* prevents text break */
 }
