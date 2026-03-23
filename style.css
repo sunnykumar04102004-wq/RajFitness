@@ -379,12 +379,13 @@ footer {
         margin: 0 auto;
     }
 
-    .nav-links {
-        display: flex !important; 
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-    }
+.nav-links {
+    display: flex !important; 
+    flex-wrap: nowrap !important;  /* FIXED */
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    overflow-x: auto; /* allow scroll */
+}
 
     .nav-links a {
         font-size: 0.75rem !important; /* Shrink links to fit on one row */
@@ -506,4 +507,11 @@ nav ul li a {
   color: white;
   font-size: 12px;
   white-space: nowrap; /* prevents text break */
+}
+.nav-links li {
+    flex-shrink: 0;
+}
+
+.nav-links a {
+    white-space: nowrap;
 }
