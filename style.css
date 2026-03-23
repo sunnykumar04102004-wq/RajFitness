@@ -1,0 +1,485 @@
+/* --- Global Reset & Variables --- */
+:root {
+    --bg-dark: #0f0f0f;
+    --bg-darker: #050505;
+    --kratos-gold: red; 
+    --kratos-gold-hover: #b8485b;
+    --text-light: #f4f4f4;
+    --text-muted: #aaaaaa;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Strictly prevents side-scrolling */
+    width: 100%;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+span {
+    color: var(--kratos-gold);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: 0.3s ease;
+}
+
+/* Ensure NO media ever breaks out of its container */
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Layout Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 40px; }
+.dark-bg { background-color: var(--bg-darker); }
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(15, 15, 15, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.nav-logo {
+    height: 60px; 
+    width: auto;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05); 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--kratos-gold);
+}
+
+.btn-nav {
+    border: 1px solid var(--kratos-gold);
+    padding: 10px 20px;
+    color: var(--kratos-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.btn-nav:hover {
+    background: var(--kratos-gold);
+    color: var(--bg-dark);
+}
+
+/* --- Hero Section --- */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.btn-primary {
+    background: var(--kratos-gold);
+    color: var(--bg-dark);
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(212, 154, 91, 0.3);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--kratos-gold-hover);
+    box-shadow: 0 6px 20px rgba(212, 154, 91, 0.5);
+    transform: translateY(-2px);
+}
+
+/* --- About Section & Sizing --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--kratos-gold);
+    padding-left: 15px;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* FIXED: Changed width from 150% to 100% to prevent mobile cutoff */
+.team-img {
+    width: 100%; 
+    max-width: 600px; 
+    height: auto;         
+    display: block;
+    margin: 0 auto;       
+    border-radius: 8px;   
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+}
+
+/* FIXED: Changed width from 150% to 100% to prevent mobile cutoff */
+.about-image video {
+    width: 100%;
+    max-width: 600px; 
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Services Section --- */
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 20px;
+    text-align: center;
+    transition: 0.4s ease;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.service-card:hover {
+    background: #1a1a1a;
+    border-bottom: 3px solid var(--kratos-gold);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- Contact Form Styles --- */
+.contact-form-container {
+    background: #111;
+    padding: 40px;
+    border: 1px solid #222;
+    border-top: 3px solid var(--kratos-gold);
+    border-radius: 5px;
+}
+
+.booking-form input, 
+.booking-form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 3px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.booking-form input:focus, 
+.booking-form select:focus {
+    border-color: var(--kratos-gold);
+    box-shadow: 0 0 10px rgba(212, 154, 91, 0.2);
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-dark);
+    border-top: 1px solid #222;
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h2 {
+    color: var(--kratos-gold);
+    font-size: 2rem;
+}
+
+.footer-address h3, .footer-social h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-address p, .footer-social p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background: #050505;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* --- Bulletproof Scrolling Ticker --- */
+.scrolling-ticker {
+    background-color: lightgray; 
+    padding: 15px 0;
+    display: flex; 
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--font-heading);
+}
+
+.ticker-content {
+    display: flex;
+    flex-shrink: 0; 
+    min-width: 100%;
+    justify-content: space-around;
+    animation: scrollTicker 15s linear infinite; 
+}
+
+.ticker-content span {
+    margin: 0 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #000000; 
+}
+
+@keyframes scrollTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.scrolling-ticker:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+
+/* =========================================
+   ULTRA-STRICT MOBILE RESPONSIVENESS FIXES
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Force the body to never scroll sideways */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        position: relative;
+    }
+    
+    /* 2. Compact the Navigation Bar */
+    .navbar {
+        flex-direction: column !important;
+        padding: 10px !important;
+        gap: 10px !important;
+        text-align: center;
+    }
+    
+    .nav-logo {
+        height: 40px !important; 
+        margin: 0 auto;
+    }
+
+    .nav-links {
+        display: flex !important; 
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem !important; /* Shrink links to fit on one row */
+    }
+    
+    .btn-nav {
+        display: none !important; /* Hide to save screen space */
+    }
+
+    /* 3. Fix the Scrolling Ticker overlap */
+    .scrolling-ticker {
+        margin-top: 95px !important; /* Perfect spacing below the new compact navbar */
+    }
+
+    /* 4. Tame the Hero Section & Graphic */
+    #hero {
+        padding: 50px 15px 30px !important; /* Overrides the massive inline padding */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem !important; /* Shrinks the massive 5.5rem text */
+        letter-spacing: 2px !important;
+        word-wrap: break-word !important;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem !important;
+        padding: 0 5px !important;
+    }
+
+    /* 5. Stretch buttons for easy tapping */
+    .btn-primary, .btn-whatsapp {
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* 6. Force Grids to Stack into 1 Column */
+    .about-grid, .services-grid, .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center !important; 
+        width: 100% !important;
+    }
+
+    .about-text h2 {
+        border-left: none !important; 
+        border-bottom: 3px solid var(--kratos-gold) !important; 
+        display: inline-block !important;
+        padding-left: 0 !important;
+        padding-bottom: 8px !important;
+    }
+
+    /* 7. Bulletproof Media (Images, Videos, Maps) */
+    /* Mobile Map Fix */
+.map-container {
+    max-width: 150% !important;
+    aspect-ratio: 1 / 1 !important;
+}
+
+.map-container iframe {
+    width: 150% !important;
+    height: 600% !important;
+}
+    }
+
+    /* Specific fix to stop map from being too tall */
+    iframe {
+        height: 500px !important;
+    }
+
+    .section-padding {
+        padding: 50px 15px !important;
+    }.about-image{
+       width:100%;
+       height:auto;
+    }
+
+/* --- Google Map Perfect Square --- */
+.map-container {
+    width: 100%;
+    max-width: 700px;     /* controls max size on desktop */
+    aspect-ratio: 1 / 1;  /* makes it a perfect square */
+    margin: 0 auto;       /* centers it */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
